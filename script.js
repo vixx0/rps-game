@@ -1,12 +1,12 @@
 function computerPlay() {
-    var optionList = ["rock", "paper", "scissors"]
-    var option = [optionList, Math.floor(Math.random() * 3)]
-    return option; 
+    const optionList = ["rock", "paper", "scissors"]
+    var option = optionList[Math.floor(Math.random() * 3)]
+    return option 
 }
 
 function playRound (playerSelection, computerSelection) {
     var playerSelection = prompt("What is your choice? Rock, Paper, or Scissors?").toLowerCase();
-    var computerSelection = computerPlay;
+    var computerSelection = computerPlay();
        
         if (playerSelection === "rock") {
             switch (computerSelection) {
@@ -54,3 +54,18 @@ function playRound (playerSelection, computerSelection) {
         }
     }
 }
+
+function game() {
+    for (i = 1; i <= 5; i++) {
+        let result = playRound()
+        if (result === "win") {
+        console.log("You won");
+        } else if (result === "lose") {
+        console.log("You lost");
+        } else if (result === "tie") {
+        console.log("It's a tie"); 
+        }
+    }
+}
+
+game()
