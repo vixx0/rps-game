@@ -1,71 +1,66 @@
 function computerPlay() {
-    const optionList = ["rock", "paper", "scissors"]
-    var option = optionList[Math.floor(Math.random() * 3)]
-    return option 
-}
+    const optionsList = ["rock", "paper", "scissors"];
+    let option = optionsList[Math.floor(Math.random() * 3)];
+    return option
+  }
 
-function playRound (playerSelection, computerSelection) {
-    var playerSelection = prompt("What is your choice? Rock, Paper, or Scissors?").toLowerCase();
+  /* function computerPlay() is what the computer will use to make a choice. OptionsList is the choices. option creates a random number
+  and multiplies it by 3 (makes a whole number) assigns it to one of the items from options list and returns it  */
+  
+  function playRound(playerSelection, computerSelection) {
+    var playerSelection = prompt("Choose: rock, paper or scissors").toLowerCase();
     var computerSelection = computerPlay();
-       
-        if (playerSelection === "rock") {
-            switch (computerSelection) {
-                case "rock":
-                return ("tie");
-                break;
 
-                case "paper":
-                return ("win");
-                break;
-
-                case "scissors":
-                return ("lose");
-                break;
-            }
-        }
-        else if (playerSelection === "paper") {
-            switch (computerSelection) {
-                case "rock":
-                return ("lose");
-                break;
-
-                case "paper":
-                return ("tie");
-                break;
-
-                case "scissors":
-                return ("win");
-                break;
-            }
-        }
-        else if (playerSelection === "scissors") {
-            switch (computerSelection) {
-                case "rock":
-                return ("win");
-                break;
-
-                case "paper":
-                return ("lose");
-                break;
-
-                case "scissors":
-                return ("tie");
-                break;
-        }
+    /* function playRound takes two variables playerselection and computerselection. player selection prompts the user to make a choice
+    of rock paper or scissors and then makes the input lower case. computer selection calls on the function computerPlay to make a choice */
+  
+    if (playerSelection === "rock") {
+      switch (computerSelection) {
+        case "rock":
+          return "T";
+        case "paper":
+          return "L";
+        case "scissors":
+          return "W";
+      }
+    } else if (playerSelection === "paper") {
+      switch (computerSelection) {
+        case "rock":
+          return "W";
+        case "paper":
+          return "T";
+        case "scissors":
+          return "L";
+      }
+    } else if (playerSelection === "scissors") {
+      switch (computerSelection) {
+        case "rock":
+          return "L";
+        case "paper":
+          return "W";
+        case "scissors":
+          return "T";
+      }
     }
-}
+  }
 
-function game() {
+  /* the code above goes through all the possible outcomes. when the computer types in rock, it will call upon computer selection and go through
+  the choices and return and out come W = win, L = lose and T = tie. */
+  
+  function game() {
     for (i = 1; i <= 5; i++) {
-        let result = playRound()
-        if (result === "win") {
-        console.log("You won");
-        } else if (result === "lose") {
-        console.log("You lost");
-        } else if (result === "tie") {
-        console.log("It's a tie"); 
-        }
+      let outcome = playRound()
+      if (outcome === "L") {
+        console.log("Machine Wins, You Lose");
+      } else if (outcome === "W") {
+        console.log("You Win")
+      } else if (outcome === "T") {
+        console.log("It's a Tie!")
+      }
     }
-}
+  }
 
-game()
+  /* this function is the game playing multiple rounds. It has a for loop that loops up to 5 times. outcome is assigned the results of
+  playRound function and console.logs a messaged based on the result */
+  
+  game();
